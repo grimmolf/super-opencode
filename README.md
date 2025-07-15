@@ -1,17 +1,17 @@
-# SuperClaude v3 🚀
+# Super-OpenCode v3 🚀
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/NomenAK/SuperClaude)
-[![GitHub issues](https://img.shields.io/github/issues/NomenAK/SuperClaude)](https://github.com/NomenAK/SuperClaude/issues)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/NomenAK/SuperClaude/blob/master/CONTRIBUTING.md)
-[![Contributors](https://img.shields.io/github/contributors/NomenAK/SuperClaude)](https://github.com/NomenAK/SuperClaude/graphs/contributors)
+[![Version](https://img.shields.io/badge/version-3.0.0-blue.svg)](https://github.com/grimmolf/super-opencode)
+[![GitHub issues](https://img.shields.io/github/issues/grimmolf/super-opencode)](https://github.com/grimmolf/super-opencode/issues)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](https://github.com/grimmolf/super-opencode/blob/master/CONTRIBUTING.md)
+[![Contributors](https://img.shields.io/github/contributors/grimmolf/super-opencode)](https://github.com/grimmolf/super-opencode/graphs/contributors)
 
-A framework that extends Claude Code with specialized commands, personas, and MCP server integration.
+A framework that extends OpenCode with specialized commands, personas, and intelligent orchestration.
 
 **📢 Status**: Initial release, fresh out of beta! Bugs may occur as we continue improving things.
 
-## What is SuperClaude? 🤔
+## What is Super-OpenCode? 🤔
 
-SuperClaude tries to make Claude Code more helpful for development work by adding:
+Super-OpenCode enhances OpenCode for development work by adding:
 - 🛠️ **16 specialized commands** for common dev tasks (some work better than others!)
 - 🎭 **Smart personas** that usually pick the right expert for different domains 
 - 🔧 **MCP server integration** for docs, UI components, and browser automation
@@ -48,193 +48,169 @@ We focused on 16 essential commands for the most common tasks:
 ### Smart Personas 🎭
 AI specialists that try to jump in when they seem relevant:
 - 🏗️ **architect** - Systems design and architecture stuff
-- 🎨 **frontend** - UI/UX and accessibility  
-- ⚙️ **backend** - APIs and infrastructure
-- 🔍 **analyzer** - Debugging and figuring things out
-- 🛡️ **security** - Security concerns and vulnerabilities
-- ✍️ **scribe** - Documentation and writing
-- *...and 5 more specialists*
+- 👨‍💻 **senior-developer** - Main programming work (default)
+- 🎯 **frontend** - UI/UX wizardry 
+- ⚙️ **backend** - Server-side systems
+- 🔬 **analyzer** - Code quality checks
+- 📝 **documentation** - Docs that actually help
+- 🔍 **code-reviewer** - Spots issues before they happen
+- 🌐 **devops** - Infrastructure and deployment
+- 🛡️ **security** - Security vulnerability finder
+- ⚡ **performance** - Speed optimization
+- 🧪 **qa** - Testing strategies
 
-*(They don't always pick perfectly, but usually get it right!)*
+### MCP Servers 🔧
+Pre-configured integrations:
+- **context7** - Documentation and example access
+- **sequential** - Sequential code analysis
+- **magic** - UI component generation 
+- **playwright** - Browser automation
 
-### MCP Integration 🔧
-External tools that connect when useful:
-- **Context7** - Grabs official library docs and patterns 
-- **Sequential** - Helps with complex multi-step thinking  
-- **Magic** - Generates modern UI components 
-- **Playwright** - Browser automation and testing stuff
-
-*(These work pretty well when they connect properly! 🤞)*
-
-## ⚠️ Upgrading from v2? Important!
-
-If you're coming from SuperClaude v2, you'll need to clean up first:
-
-1. **Uninstall v2** using its uninstaller if available
-2. **Manual cleanup** - delete these if they exist:
-   - `SuperClaude/`
-   - `~/.claude/shared/`
-   - `~/.claude/commands/` 
-   - `~/.claude/CLAUDE.md`
-4. **Then proceed** with v3 installation below
-
-This is because v3 has a different structure and the old files can cause conflicts.
-
-### 🔄 **Key Change for v2 Users**
-**The `/build` command changed!** In v2, `/build` was used for feature implementation. In v3:
-- `/sc:build` = compilation/packaging only 
-- `/sc:implement` = feature implementation (NEW!)
-
-**Migration**: Replace `v2 /build myFeature` with `v3 /sc:implement myFeature`
+### Operational Modes 💫
+- **Task Management** - Keeps track of what's being worked on
+- **Introspection Mode** - AI thinks step-by-step 
+- **Token Efficiency** - Compressed outputs for longer chats
 
 ## Installation 📦
 
+### Prerequisites
+- Python 3.8+
+- OpenCode installed and configured
+- macOS, Linux, or Windows
+
+### Cleanup (if upgrading)
+If you're coming from Super-OpenCode v2, you'll need to clean up first:
+
+1. Delete old files:
+   - `~/.opencode/CLAUDE.md`
+   - `SuperOpenCode/`
+
+2. Remove MCP server configs from `claude_desktop_config.json`
+
 ### Quick Start
+
 ```bash
-# Clone the repo
-git clone <repository-url>
-cd SuperClaude
+# Clone the repository
+git clone https://github.com/grimmolf/super-opencode.git
+cd super-opencode
 
-# Install with our unified CLI
-python3 SuperClaude.py install --quick
-
-# That's it! 🎉
+# Run the installer
+python3 SuperOpenCode.py install --quick
 ```
 
-**Missing Python?**
+This quick install gives you:
+- Core framework
+- Essential commands
+- Basic MCP servers
+
+### Installation Options
+
+**Minimal Install** (just the basics):
 ```bash
-# Linux (Ubuntu/Debian)
-sudo apt update && sudo apt install python3 python3-pip
-
-# macOS  
-brew install python3
-
-# Windows
-# Download from https://python.org/downloads/
+python3 SuperOpenCode.py install --minimal
 ```
 
-### Other Installation Options
+**Developer Profile** (recommended for most):
 ```bash
-# Minimal install (just core framework)
-python3 SuperClaude.py install --minimal
-
-# Developer setup (everything)  
-python3 SuperClaude.py install --profile developer
-
-# Interactive selection
-python3 SuperClaude.py install
-
-# See what's available
-python3 SuperClaude.py install --list-components
+python3 SuperOpenCode.py install --profile developer
 ```
 
-The installer handles everything: framework files, MCP servers, and Claude Code configuration.
+**Full Installation** (everything):
+```bash
+python3 SuperOpenCode.py install
+```
 
-## How It Works 🔄
+**See what's available**:
+```bash
+python3 SuperOpenCode.py install --list-components
+```
 
-SuperClaude tries to enhance Claude Code through:
+The installer handles everything: framework files, MCP servers, and OpenCode configuration.
 
-1. **Framework Files** - Documentation installed to `~/.claude/` that guides how Claude responds
-2. **Slash Commands** - 16 specialized commands for different dev tasks  
-3. **MCP Servers** - External services that add extra capabilities (when they work!)
-4. **Smart Routing** - Attempts to pick the right tools and experts based on what you're doing
+## How It Works 🔧
 
-Most of the time it plays nicely with Claude Code's existing stuff. 🤝
+Super-OpenCode enhances OpenCode through:
 
-## What's Coming in v4 🔮
+1. **Framework Files** - Documentation installed to `~/.opencode/` that guides how the AI responds
+2. **Command System** - Slash commands that trigger specialized workflows
+3. **Persona Intelligence** - Domain experts that activate based on context
+4. **MCP Integration** - External tools for enhanced capabilities
 
-We're hoping to work on these things for the next version:
-- **Hooks System** - Event-driven stuff (removed from v3, trying to redesign it properly)
-- **MCP Suite** - More external tool integrations  
-- **Better Performance** - Trying to make things faster and less buggy
-- **More Personas** - Maybe a few more domain specialists
-- **Cross-CLI Support** - Might work with other AI coding assistants
+Most of the time it plays nicely with OpenCode's existing stuff. 🤝
 
-*(No promises on timeline though - we're still figuring v3 out! 😅)*
+## Getting Help 🆘
 
-## Configuration ⚙️
+- **Issues**: Found a bug? [Open an issue](https://github.com/grimmolf/super-opencode/issues)
+- **Questions**: Check existing issues first
+- **Contributing**: PRs welcome! See CONTRIBUTING.md
 
-After installation, you can customize SuperClaude by editing:
-- `~/.claude/settings.json` - Main configuration
-- `~/.claude/*.md` - Framework behavior files
+## Customization 🎨
 
-Most users probably won't need to change anything - it usually works okay out of the box. 🎛️
+### Disable Specific Features
+You can turn off personas or MCP servers you don't need by editing the config files.
 
-## Documentation 📖
+### Custom Personas
+After installation, you can customize Super-OpenCode by editing:
+- `~/.opencode/PERSONAS.md` - Modify persona behaviors
+- `~/.opencode/COMMANDS.md` - Customize command workflows
 
-Want to learn more? Check out our guides:
+## Troubleshooting 🔍
 
-- 📚 [**User Guide**](Docs/superclaude-user-guide.md) - Complete overview and getting started
-- 🛠️ [**Commands Guide**](Docs/commands-guide.md) - All 16 slash commands explained  
-- 🏳️ [**Flags Guide**](Docs/flags-guide.md) - Command flags and options
-- 🎭 [**Personas Guide**](Docs/personas-guide.md) - Understanding the persona system
-- 📦 [**Installation Guide**](Docs/installation-guide.md) - Detailed installation instructions
+**Installation fails?**
+```bash
+python3 SuperOpenCode.py install --diagnose
+```
 
-These guides have more details than this README and are kept up to date.
+**Need to uninstall?**
+```bash
+python3 SuperOpenCode.py uninstall
+```
 
-## Contributing 🤝
-
-We welcome contributions! Areas where we could use help:
-- 🐛 **Bug Reports** - Let us know what's broken
-- 📝 **Documentation** - Help us explain things better  
-- 🧪 **Testing** - More test coverage for different setups
-- 💡 **Ideas** - Suggestions for new features or improvements
-
-The codebase is pretty straightforward Python + documentation files.
+**Want to update?**
+```bash
+python3 SuperOpenCode.py update
+```
 
 ## Project Structure 📁
 
 ```
-SuperClaude/
-├── SuperClaude.py          # Main installer CLI
-├── SuperClaude/            # Framework files  
-│   ├── Core/              # Behavior documentation (COMMANDS.md, FLAGS.md, etc.)
-│   ├── Commands/          # 16 slash command definitions
-│   └── Settings/          # Configuration files
-├── setup/                 # Installation system
-└── profiles/              # Installation profiles (quick, minimal, developer)
+Super-OpenCode/
+├── SuperOpenCode.py          # Main installer CLI
+├── SuperOpenCode/            # Framework files  
+│   ├── Core/                # Core behaviors
+│   ├── Commands/            # Command definitions
+│   └── Hooks/               # (Placeholder for v4)
+├── setup/                   # Installation system
+│   ├── base/               # Base classes
+│   ├── components/         # Component installers
+│   ├── core/               # Core utilities
+│   ├── operations/         # CLI operations
+│   └── utils/              # Helper utilities
+└── profiles/               # Installation profiles
 ```
 
-## Architecture Notes 🏗️
+## FAQs 🤷
 
-The v3 architecture focuses on:
-- **Simplicity** - Removed complexity that wasn't adding value
-- **Reliability** - Better installation and fewer breaking changes  
-- **Modularity** - Pick only the components you want
-- **Performance** - Faster operations with smarter caching
+**Q: Does this work with other AI tools?**  
+A: Currently OpenCode only, but v4 will have broader compatibility.
 
-We learned a lot from v2 and tried to address the main pain points.
+**Q: Can I use this without MCP servers?**  
+A: Yes! Use `--minimal` install or disable them in config.
 
-## FAQ 🙋
+## Super-OpenCode Contributors
 
-**Q: Why was the hooks system removed?**  
-A: It was getting complex and buggy. We're redesigning it properly for v4.
+[![Contributors](https://contrib.rocks/image?repo=grimmolf/super-opencode)](https://github.com/grimmolf/super-opencode/graphs/contributors)
 
-**Q: Does this work with other AI assistants?**  
-A: Currently Claude Code only, but v4 will have broader compatibility.
+---
 
-**Q: Is this stable enough for daily use?**  
-A: The basic stuff works pretty well, but definitely expect some rough edges since it's a fresh release. Probably fine for experimenting! 🧪
-
-## SuperClaude Contributors
-
-[![Contributors](https://contrib.rocks/image?repo=NomenAk/SuperClaude)](https://github.com/NomenAK/SuperClaude/graphs/contributors)
-
-## License
-
-MIT - [See LICENSE file for details](https://opensource.org/licenses/MIT)
+**Note**: This is an early release. We're actively improving things based on feedback. Your patience and bug reports are appreciated! 🙏
 
 ## Star History
 
-<a href="https://www.star-history.com/#NomenAK/SuperClaude&Date">
+<a href="https://www.star-history.com/#grimmolf/super-opencode&Date">
  <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date&theme=dark" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date" />
-   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=NomenAK/SuperClaude&type=Date" />
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=grimmolf/super-opencode&type=Date&theme=dark" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=grimmolf/super-opencode&type=Date" />
+   <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=grimmolf/super-opencode&type=Date" />
  </picture>
 </a>
----
-
-*Built by developers who got tired of generic responses. Hope you find it useful! 🙂*
-
----
