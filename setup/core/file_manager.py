@@ -1,5 +1,5 @@
 """
-Cross-platform file management for SuperClaude installation system
+Cross-platform file management for Super-OpenCode installation system
 """
 
 import shutil

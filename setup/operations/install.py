@@ -1,5 +1,5 @@
 """
-SuperClaude Installation Operation Module
+Super-OpenCode Installation Operation Module
 Refactored from install.py for unified CLI hub
 """
 
@@ -35,15 +35,15 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "install",
-        help="Install SuperClaude framework components",
-        description="Install SuperClaude Framework with various options and profiles",
+        help="Install Super-OpenCode framework components",
+        description="Install Super-OpenCode Framework with various options and profiles",
         epilog="""
 Examples:
-  SuperClaude.py install                          # Interactive installation
-  SuperClaude.py install --quick --dry-run        # Quick installation (dry-run)
-  SuperClaude.py install --profile developer      # Developer profile  
-  SuperClaude.py install --components core mcp    # Specific components
-  SuperClaude.py install --verbose --force        # Verbose with force mode
+  Super-OpenCode.py install                          # Interactive installation
+  Super-OpenCode.py install --quick --dry-run        # Quick installation (dry-run)
+  Super-OpenCode.py install --profile developer      # Developer profile  
+  Super-OpenCode.py install --components core mcp    # Specific components
+  Super-OpenCode.py install --verbose --force        # Verbose with force mode
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -121,7 +121,7 @@ def validate_system_requirements(validator: Validator, component_names: List[str
             
             # Provide additional guidance
             print(f"\n{Colors.CYAN}💡 Installation Help:{Colors.RESET}")
-            print("  Run 'SuperClaude.py install --diagnose' for detailed system diagnostics")
+            print("  Run 'Super-OpenCode.py install --diagnose' for detailed system diagnostics")
             print("  and step-by-step installation instructions.")
             
             return False
@@ -201,7 +201,7 @@ def interactive_component_selection(registry: ComponentRegistry, config_manager:
             "Custom Selection"
         ]
         
-        print(f"\n{Colors.CYAN}SuperClaude Installation Options:{Colors.RESET}")
+        print(f"\n{Colors.CYAN}Super-OpenCode Installation Options:{Colors.RESET}")
         menu = Menu("Select installation type:", preset_options)
         choice = menu.display()
         
@@ -280,7 +280,7 @@ def run_system_diagnostics(validator: Validator) -> None:
     """Run comprehensive system diagnostics"""
     logger = get_logger()
     
-    print(f"\n{Colors.CYAN}{Colors.BRIGHT}SuperClaude System Diagnostics{Colors.RESET}")
+    print(f"\n{Colors.CYAN}{Colors.BRIGHT}Super-OpenCode System Diagnostics{Colors.RESET}")
     print("=" * 50)
     
     # Run diagnostics
@@ -315,18 +315,18 @@ def run_system_diagnostics(validator: Validator) -> None:
     
     # Summary
     if all_passed:
-        print(f"\n{Colors.GREEN}✅ All system checks passed! Your system is ready for SuperClaude.{Colors.RESET}")
+        print(f"\n{Colors.GREEN}✅ All system checks passed! Your system is ready for Super-OpenCode.{Colors.RESET}")
     else:
         print(f"\n{Colors.YELLOW}⚠️  Some issues found. Please address the recommendations above.{Colors.RESET}")
     
     print(f"\n{Colors.BLUE}Next steps:{Colors.RESET}")
     if all_passed:
-        print("  1. Run 'SuperClaude.py install' to proceed with installation")
+        print("  1. Run 'Super-OpenCode.py install' to proceed with installation")
         print("  2. Choose your preferred installation mode (quick, minimal, or custom)")
     else:
         print("  1. Install missing dependencies using the commands above")
         print("  2. Restart your terminal after installing tools")
-        print("  3. Run 'SuperClaude.py install --diagnose' again to verify")
+        print("  3. Run 'Super-OpenCode.py install --diagnose' again to verify")
 
 
 def perform_installation(components: List[str], args: argparse.Namespace) -> bool:
@@ -428,8 +428,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Installation v3.0",
-                "Installing SuperClaude framework components"
+                "Super-OpenCode Installation v3.0",
+                "Installing Super-OpenCode framework components"
             )
         
         # Handle special modes
@@ -511,13 +511,13 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperClaude installation completed successfully!")
+                display_success("Super-OpenCode installation completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")
                     print(f"1. Restart your Claude Code session")
                     print(f"2. Framework files are now available in {args.install_dir}")
-                    print(f"3. Use SuperClaude commands and features in Claude Code")
+                    print(f"3. Use Super-OpenCode commands and features in Claude Code")
                     
             return 0
         else:

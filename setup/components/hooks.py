@@ -113,7 +113,7 @@ class HooksComponent(Component):
     def install(self, config: Dict[str, Any]) -> bool:
         """Install hooks component"""
         try:
-            self.logger.info("Installing SuperClaude hooks component...")
+            self.logger.info("Installing Super-OpenCode hooks component...")
             
             # This component is future-ready - hooks aren't implemented yet
             source_dir = self._get_source_dir()
@@ -128,7 +128,7 @@ class HooksComponent(Component):
                 
                 # Create placeholder file
                 placeholder_content = '''"""
-SuperClaude Hooks - Future Implementation
+Super-OpenCode Hooks - Future Implementation
 
 This directory is reserved for Claude Code hooks integration.
 Hooks will provide lifecycle management and automation capabilities.
@@ -140,7 +140,7 @@ Planned hooks:
 - context_accumulator: Manage context across operations
 - performance_monitor: Track and optimize performance
 
-For more information, see SuperClaude documentation.
+For more information, see Super-OpenCode documentation.
 """
 
 # Placeholder for future hooks implementation
@@ -244,7 +244,7 @@ def placeholder_hook():
     def uninstall(self) -> bool:
         """Uninstall hooks component"""
         try:
-            self.logger.info("Uninstalling SuperClaude hooks component...")
+            self.logger.info("Uninstalling Super-OpenCode hooks component...")
             
             # Remove hook files and placeholder
             hooks_dir = self.install_dir / "hooks"
@@ -302,7 +302,7 @@ def placeholder_hook():
     def update(self, config: Dict[str, Any]) -> bool:
         """Update hooks component"""
         try:
-            self.logger.info("Updating SuperClaude hooks component...")
+            self.logger.info("Updating Super-OpenCode hooks component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("hooks")
@@ -387,10 +387,10 @@ def placeholder_hook():
     
     def _get_source_dir(self) -> Path:
         """Get source directory for hook files"""
-        # Assume we're in SuperClaude/setup/components/hooks.py
-        # and hook files are in SuperClaude/SuperClaude/Hooks/
+        # Assume we're in Super-OpenCode/setup/components/hooks.py
+        # and hook files are in Super-OpenCode/Super-OpenCode/Hooks/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperClaude" / "Hooks"
+        return project_root / "Super-OpenCode" / "Hooks"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""

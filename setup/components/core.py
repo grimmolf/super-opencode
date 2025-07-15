@@ -1,5 +1,5 @@
 """
-Core component for SuperClaude framework files installation
+Core component for Super-OpenCode framework files installation
 """
 
 from typing import Dict, List, Tuple, Any
@@ -15,7 +15,7 @@ from ..utils.logger import get_logger
 
 
 class CoreComponent(Component):
-    """Core SuperClaude framework files component"""
+    """Core Super-OpenCode framework files component"""
     
     def __init__(self, install_dir: Path = None):
         """Initialize core component"""
@@ -42,7 +42,7 @@ class CoreComponent(Component):
         return {
             "name": "core",
             "version": "3.0.0",
-            "description": "SuperClaude framework documentation and core files",
+            "description": "Super-OpenCode framework documentation and core files",
             "category": "core"
         }
     
@@ -93,16 +93,16 @@ class CoreComponent(Component):
         return files
     
     def get_metadata_modifications(self) -> Dict[str, Any]:
-        """Get metadata modifications for SuperClaude"""
+        """Get metadata modifications for Super-OpenCode"""
         return {
             "framework": {
                 "version": "3.0.0",
-                "name": "SuperClaude",
+                "name": "Super-OpenCode",
                 "description": "AI-enhanced development framework for Claude Code",
                 "installation_type": "global",
                 "components": ["core"]
             },
-            "superclaude": {
+            "super-opencode": {
                 "enabled": True,
                 "version": "3.0.0",
                 "profile": "default",
@@ -118,7 +118,7 @@ class CoreComponent(Component):
     def install(self, config: Dict[str, Any]) -> bool:
         """Install core component"""
         try:
-            self.logger.info("Installing SuperClaude core framework files...")
+            self.logger.info("Installing Super-OpenCode core framework files...")
             
             # Validate installation
             success, errors = self.validate_prerequisites()
@@ -177,9 +177,9 @@ class CoreComponent(Component):
                 })
                 self.logger.info("Updated metadata with core component registration")
                 
-                # Migrate any existing SuperClaude data from settings.json
-                if self.settings_manager.migrate_superclaude_data():
-                    self.logger.info("Migrated existing SuperClaude data from settings.json")
+                # Migrate any existing Super-OpenCode data from settings.json
+                if self.settings_manager.migrate_superopencode_data():
+                    self.logger.info("Migrated existing Super-OpenCode data from settings.json")
             except Exception as e:
                 self.logger.error(f"Failed to update metadata: {e}")
                 return False
@@ -201,7 +201,7 @@ class CoreComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall core component"""
         try:
-            self.logger.info("Uninstalling SuperClaude core component...")
+            self.logger.info("Uninstalling Super-OpenCode core component...")
             
             # Remove framework files
             removed_count = 0
@@ -235,7 +235,7 @@ class CoreComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update core component"""
         try:
-            self.logger.info("Updating SuperClaude core component...")
+            self.logger.info("Updating Super-OpenCode core component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("core")
@@ -325,10 +325,10 @@ class CoreComponent(Component):
     
     def _get_source_dir(self) -> Path:
         """Get source directory for framework files"""
-        # Assume we're in SuperClaude/setup/components/core.py
-        # and framework files are in SuperClaude/SuperClaude/Core/
+        # Assume we're in Super-OpenCode/setup/components/core.py
+        # and framework files are in Super-OpenCode/Super-OpenCode/Core/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperClaude" / "Core"
+        return project_root / "Super-OpenCode" / "Core"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""

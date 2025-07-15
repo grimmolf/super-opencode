@@ -1,5 +1,5 @@
 """
-System validation for SuperClaude installation requirements
+System validation for Super-OpenCode installation requirements
 """
 
 import subprocess

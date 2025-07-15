@@ -1,5 +1,5 @@
 """
-SuperClaude Update Operation Module
+Super-OpenCode Update Operation Module
 Refactored from update.py for unified CLI hub
 """
 
@@ -36,14 +36,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "update",
-        help="Update existing SuperClaude installation",
-        description="Update SuperClaude Framework components to latest versions",
+        help="Update existing Super-OpenCode installation",
+        description="Update Super-OpenCode Framework components to latest versions",
         epilog="""
 Examples:
-  SuperClaude.py update                       # Interactive update
-  SuperClaude.py update --check --verbose     # Check for updates (verbose)
-  SuperClaude.py update --components core mcp # Update specific components
-  SuperClaude.py update --backup --force      # Create backup before update (forced)
+  Super-OpenCode.py update                       # Interactive update
+  Super-OpenCode.py update --check --verbose     # Check for updates (verbose)
+  Super-OpenCode.py update --components core mcp # Update specific components
+  Super-OpenCode.py update --backup --force      # Create backup before update (forced)
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -87,7 +87,7 @@ Examples:
 
 
 def check_installation_exists(install_dir: Path) -> bool:
-    """Check if SuperClaude is installed"""
+    """Check if Super-OpenCode is installed"""
     settings_file = install_dir / "settings.json"
     return settings_file.exists()
 
@@ -138,7 +138,7 @@ def display_update_check(installed_components: Dict[str, str], available_updates
     print("=" * 50)
     
     if not installed_components:
-        print(f"{Colors.YELLOW}No SuperClaude installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}No Super-OpenCode installation found{Colors.RESET}")
         return
     
     print(f"{Colors.BLUE}Currently installed components:{Colors.RESET}")
@@ -347,14 +347,14 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Update v3.0",
-                "Updating SuperClaude framework components"
+                "Super-OpenCode Update v3.0",
+                "Updating Super-OpenCode framework components"
             )
         
-        # Check if SuperClaude is installed
+        # Check if Super-OpenCode is installed
         if not check_installation_exists(args.install_dir):
-            logger.error(f"SuperClaude installation not found in {args.install_dir}")
-            logger.info("Use 'SuperClaude.py install' to install SuperClaude first")
+            logger.error(f"Super-OpenCode installation not found in {args.install_dir}")
+            logger.info("Use 'Super-OpenCode.py install' to install Super-OpenCode first")
             return 1
         
         # Create component registry
@@ -403,7 +403,7 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperClaude update completed successfully!")
+                display_success("Super-OpenCode update completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Next steps:{Colors.RESET}")

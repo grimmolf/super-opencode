@@ -1,5 +1,5 @@
 """
-Configuration management for SuperClaude installation system
+Configuration management for Super-OpenCode installation system
 """
 
 import json

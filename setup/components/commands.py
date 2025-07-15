@@ -1,5 +1,5 @@
 """
-Commands component for SuperClaude slash command definitions
+Commands component for Super-OpenCode slash command definitions
 """
 
 from typing import Dict, List, Tuple, Any
@@ -13,7 +13,7 @@ from ..utils.logger import get_logger
 
 
 class CommandsComponent(Component):
-    """SuperClaude slash commands component"""
+    """Super-OpenCode slash commands component"""
     
     def __init__(self, install_dir: Path = None):
         """Initialize commands component"""
@@ -46,7 +46,7 @@ class CommandsComponent(Component):
         return {
             "name": "commands",
             "version": "3.0.0",
-            "description": "SuperClaude slash command definitions",
+            "description": "Super-OpenCode slash command definitions",
             "category": "commands"
         }
     
@@ -117,7 +117,7 @@ class CommandsComponent(Component):
     def install(self, config: Dict[str, Any]) -> bool:
         """Install commands component"""
         try:
-            self.logger.info("Installing SuperClaude command definitions...")
+            self.logger.info("Installing Super-OpenCode command definitions...")
             
             # Check for and migrate existing commands from old location
             self._migrate_existing_commands()
@@ -186,7 +186,7 @@ class CommandsComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall commands component"""
         try:
-            self.logger.info("Uninstalling SuperClaude commands component...")
+            self.logger.info("Uninstalling Super-OpenCode commands component...")
             
             # Remove command files from sc subdirectory
             commands_dir = self.install_dir / "commands" / "sc"
@@ -258,7 +258,7 @@ class CommandsComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update commands component"""
         try:
-            self.logger.info("Updating SuperClaude commands component...")
+            self.logger.info("Updating Super-OpenCode commands component...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("commands")
@@ -344,10 +344,10 @@ class CommandsComponent(Component):
     
     def _get_source_dir(self) -> Path:
         """Get source directory for command files"""
-        # Assume we're in SuperClaude/setup/components/commands.py
-        # and command files are in SuperClaude/SuperClaude/Commands/
+        # Assume we're in Super-OpenCode/setup/components/commands.py
+        # and command files are in Super-OpenCode/Super-OpenCode/Commands/
         project_root = Path(__file__).parent.parent.parent
-        return project_root / "SuperClaude" / "Commands"
+        return project_root / "Super-OpenCode" / "Commands"
     
     def get_size_estimate(self) -> int:
         """Get estimated installation size"""

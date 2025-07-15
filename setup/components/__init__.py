@@ -1,4 +1,4 @@
-"""Component implementations for SuperClaude installation system"""
+"""Component implementations for Super-OpenCode installation system"""
 
 from .core import CoreComponent
 from .commands import CommandsComponent

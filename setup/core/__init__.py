@@ -1,4 +1,4 @@
-"""Core modules for SuperClaude installation system"""
+"""Core modules for Super-OpenCode installation system"""
 
 from .config_manager import ConfigManager
 from .settings_manager import SettingsManager

@@ -280,7 +280,7 @@ class MCPComponent(Component):
     def install(self, config: Dict[str, Any]) -> bool:
         """Install MCP component"""
         try:
-            self.logger.info("Installing SuperClaude MCP servers...")
+            self.logger.info("Installing Super-OpenCode MCP servers...")
             
             # Validate prerequisites
             success, errors = self.validate_prerequisites()
@@ -365,7 +365,7 @@ class MCPComponent(Component):
     def uninstall(self) -> bool:
         """Uninstall MCP component"""
         try:
-            self.logger.info("Uninstalling SuperClaude MCP servers...")
+            self.logger.info("Uninstalling Super-OpenCode MCP servers...")
             
             # Uninstall each MCP server
             uninstalled_count = 0
@@ -401,7 +401,7 @@ class MCPComponent(Component):
     def update(self, config: Dict[str, Any]) -> bool:
         """Update MCP component"""
         try:
-            self.logger.info("Updating SuperClaude MCP servers...")
+            self.logger.info("Updating Super-OpenCode MCP servers...")
             
             # Check current version
             current_version = self.settings_manager.get_component_version("mcp")

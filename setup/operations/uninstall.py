@@ -1,5 +1,5 @@
 """
-SuperClaude Uninstall Operation Module
+Super-OpenCode Uninstall Operation Module
 Refactored from uninstall.py for unified CLI hub
 """
 
@@ -34,14 +34,14 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "uninstall",
-        help="Remove SuperClaude framework installation",
-        description="Uninstall SuperClaude Framework components",
+        help="Remove Super-OpenCode framework installation",
+        description="Uninstall Super-OpenCode Framework components",
         epilog="""
 Examples:
-  SuperClaude.py uninstall                    # Interactive uninstall
-  SuperClaude.py uninstall --components core  # Remove specific components
-  SuperClaude.py uninstall --complete --force # Complete removal (forced)
-  SuperClaude.py uninstall --keep-backups     # Keep backup files
+  Super-OpenCode.py uninstall                    # Interactive uninstall
+  Super-OpenCode.py uninstall --components core  # Remove specific components
+  Super-OpenCode.py uninstall --complete --force # Complete removal (forced)
+  Super-OpenCode.py uninstall --keep-backups     # Keep backup files
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -91,7 +91,7 @@ Examples:
 
 
 def check_installation_exists(install_dir: Path) -> bool:
-    """Check if SuperClaude is installed"""
+    """Check if Super-OpenCode is installed"""
     settings_file = install_dir / "settings.json"
     return settings_file.exists() and install_dir.exists()
 
@@ -152,7 +152,7 @@ def display_uninstall_info(info: Dict[str, Any]) -> None:
     print("=" * 50)
     
     if not info["exists"]:
-        print(f"{Colors.YELLOW}No SuperClaude installation found{Colors.RESET}")
+        print(f"{Colors.YELLOW}No Super-OpenCode installation found{Colors.RESET}")
         return
     
     print(f"{Colors.BLUE}Installation Directory:{Colors.RESET} {info['install_dir']}")
@@ -259,7 +259,7 @@ def display_uninstall_plan(components: List[str], args: argparse.Namespace, info
         print(f"{Colors.GREEN}Will preserve:{Colors.RESET} {', '.join(preserved)}")
     
     if args.complete:
-        print(f"{Colors.RED}WARNING: Complete uninstall will remove all SuperClaude files{Colors.RESET}")
+        print(f"{Colors.RED}WARNING: Complete uninstall will remove all Super-OpenCode files{Colors.RESET}")
     
     print()
 
@@ -429,8 +429,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Uninstall v3.0",
-                "Removing SuperClaude framework components"
+                "Super-OpenCode Uninstall v3.0",
+                "Removing Super-OpenCode framework components"
             )
         
         # Get installation information
@@ -440,9 +440,9 @@ def run(args: argparse.Namespace) -> int:
         if not args.quiet:
             display_uninstall_info(info)
         
-        # Check if SuperClaude is installed
+        # Check if Super-OpenCode is installed
         if not info["exists"]:
-            logger.warning(f"No SuperClaude installation found in {args.install_dir}")
+            logger.warning(f"No Super-OpenCode installation found in {args.install_dir}")
             return 0
         
         # Get components to uninstall
@@ -461,7 +461,7 @@ def run(args: argparse.Namespace) -> int:
         # Confirmation
         if not args.no_confirm and not args.yes:
             if args.complete:
-                warning_msg = "This will completely remove SuperClaude. Continue?"
+                warning_msg = "This will completely remove Super-OpenCode. Continue?"
             else:
                 warning_msg = f"This will remove {len(components)} component(s). Continue?"
             
@@ -478,13 +478,13 @@ def run(args: argparse.Namespace) -> int:
         
         if success:
             if not args.quiet:
-                display_success("SuperClaude uninstall completed successfully!")
+                display_success("Super-OpenCode uninstall completed successfully!")
                 
                 if not args.dry_run:
                     print(f"\n{Colors.CYAN}Uninstall complete:{Colors.RESET}")
-                    print(f"SuperClaude has been removed from {args.install_dir}")
+                    print(f"Super-OpenCode has been removed from {args.install_dir}")
                     if not args.complete:
-                        print(f"You can reinstall anytime using 'SuperClaude.py install'")
+                        print(f"You can reinstall anytime using 'Super-OpenCode.py install'")
                     
             return 0
         else:

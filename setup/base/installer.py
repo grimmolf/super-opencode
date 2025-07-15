@@ -1,5 +1,5 @@
 """
-Base installer logic for SuperClaude installation system
+Base installer logic for Super-OpenCode installation system
 """
 
 from typing import List, Dict, Optional, Set, Tuple, Any
@@ -140,7 +140,7 @@ class Installer:
         
         # Create timestamped backup
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        backup_name = f"superclaude_backup_{timestamp}"
+        backup_name = f"super-opencode_backup_{timestamp}"
         backup_path = backup_dir / f"{backup_name}.tar.gz"
         
         # Create temporary directory for backup

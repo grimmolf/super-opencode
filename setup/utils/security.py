@@ -1,5 +1,5 @@
 """
-Security utilities for SuperClaude installation system
+Security utilities for Super-OpenCode installation system
 Path validation and input sanitization
 """
 
@@ -325,23 +325,23 @@ class SecurityValidator:
         else:
             abs_target_str = str(abs_target).lower()
         
-        # Special handling for Claude installation directory
-        claude_patterns = ['.claude', '.claude' + os.sep, '.claude\\', '.claude/']
-        is_claude_dir = any(abs_target_str.endswith(pattern) for pattern in claude_patterns)
+        # Special handling for OpenCode installation directory
+        opencode_patterns = ['.opencode', '.opencode' + os.sep, '.opencode\\', '.opencode/']
+        is_opencode_dir = any(abs_target_str.endswith(pattern) for pattern in opencode_patterns)
         
-        if is_claude_dir:
+        if is_opencode_dir:
             try:
                 home_path = Path.home()
             except (RuntimeError, OSError):
                 # If we can't determine home directory, skip .claude special handling
-                cls._log_security_decision("WARN", f"Cannot determine home directory for .claude validation: {abs_target}")
+                cls._log_security_decision("WARN", f"Cannot determine home directory for .opencode validation: {abs_target}")
                 # Fall through to regular validation
             else:
                 try:
                     # Verify it's specifically the current user's home directory
                     abs_target.relative_to(home_path)
                     
-                    # Enhanced Windows security checks for .claude directories
+                    # Enhanced Windows security checks for .opencode directories
                     if os.name == 'nt':
                         # Check for junction points and symbolic links on Windows
                         if cls._is_windows_junction_or_symlink(abs_target):
@@ -365,19 +365,19 @@ class SecurityValidator:
                             errors.append(f"Insufficient permissions: missing {missing}")
                     
                     # Log successful validation for audit trail
-                    cls._log_security_decision("ALLOW", f"Claude directory installation validated: {abs_target}")
+                    cls._log_security_decision("ALLOW", f"OpenCode directory installation validated: {abs_target}")
                     return len(errors) == 0, errors
                     
                 except ValueError:
                     # Not under current user's home directory
                     if os.name == 'nt':
-                        errors.append("Claude installation must be in your user directory (e.g., C:\\Users\\YourName\\.claude)")
+                        errors.append("OpenCode installation must be in your user directory (e.g., C:\\Users\\YourName\\.opencode)")
                     else:
-                        errors.append("Claude installation must be in your home directory (e.g., ~/.claude)")
-                    cls._log_security_decision("DENY", f"Claude directory outside user home: {abs_target}")
+                        errors.append("OpenCode installation must be in your home directory (e.g., ~/.opencode)")
+                    cls._log_security_decision("DENY", f"OpenCode directory outside user home: {abs_target}")
                     return False, errors
         
-        # Validate path for non-.claude directories
+        # Validate path for non-.opencode directories
         is_safe, msg = cls.validate_path(target_dir)
         if not is_safe:
             if os.name == 'nt':
@@ -526,7 +526,7 @@ class SecurityValidator:
             import datetime
             
             # Create security logger if it doesn't exist
-            security_logger = logging.getLogger('superclaude.security')
+            security_logger = logging.getLogger('super-opencode.security')
             if not security_logger.handlers:
                 # Set up basic logging if not already configured
                 handler = logging.StreamHandler()
@@ -551,7 +551,7 @@ class SecurityValidator:
             pass
     
     @classmethod
-    def create_secure_temp_dir(cls, prefix: str = "superclaude_") -> Path:
+    def create_secure_temp_dir(cls, prefix: str = "super-opencode_") -> Path:
         """
         Create secure temporary directory
         

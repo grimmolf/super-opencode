@@ -1,18 +1,18 @@
 """
-SuperClaude Operations Module
+Super-OpenCode Operations Module
 
-This module contains all SuperClaude management operations that can be
-executed through the unified CLI hub (SuperClaude.py).
+This module contains all Super-OpenCode management operations that can be
+executed through the unified CLI hub (Super-OpenCode.py).
 
 Each operation module should implement:
 - register_parser(subparsers): Register CLI arguments for the operation
 - run(args): Execute the operation with parsed arguments
 
 Available operations:
-- install: Install SuperClaude framework components
-- update: Update existing SuperClaude installation
-- uninstall: Remove SuperClaude framework installation  
-- backup: Backup and restore SuperClaude installations
+- install: Install Super-OpenCode framework components
+- update: Update existing Super-OpenCode installation
+- uninstall: Remove Super-OpenCode framework installation  
+- backup: Backup and restore Super-OpenCode installations
 """
 
 __version__ = "3.0.0"
@@ -24,22 +24,22 @@ def get_operation_info():
     return {
         "install": {
             "name": "install",
-            "description": "Install SuperClaude framework components",
+            "description": "Install Super-OpenCode framework components",
             "module": "setup.operations.install"
         },
         "update": {
             "name": "update", 
-            "description": "Update existing SuperClaude installation",
+            "description": "Update existing Super-OpenCode installation",
             "module": "setup.operations.update"
         },
         "uninstall": {
             "name": "uninstall",
-            "description": "Remove SuperClaude framework installation", 
+            "description": "Remove Super-OpenCode framework installation", 
             "module": "setup.operations.uninstall"
         },
         "backup": {
             "name": "backup",
-            "description": "Backup and restore SuperClaude installations",
+            "description": "Backup and restore Super-OpenCode installations",
             "module": "setup.operations.backup"
         }
     }

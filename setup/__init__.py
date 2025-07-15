@@ -1,10 +1,10 @@
 """
-SuperClaude Installation Suite
-Pure Python installation system for SuperClaude framework
+Super-OpenCode Installation Suite
+Pure Python installation system for Super-OpenCode framework
 """
 
 __version__ = "3.0.0"
-__author__ = "SuperClaude Team"
+__author__ = "Super-OpenCode Team"
 
 from pathlib import Path
 
@@ -15,4 +15,4 @@ CONFIG_DIR = PROJECT_ROOT / "config"
 PROFILES_DIR = PROJECT_ROOT / "profiles"
 
 # Installation target
-DEFAULT_INSTALL_DIR = Path.home() / ".claude"
+DEFAULT_INSTALL_DIR = Path.home() / ".opencode"

@@ -1,5 +1,5 @@
 """
-SuperClaude Backup Operation Module
+Super-OpenCode Backup Operation Module
 Refactored from backup.py for unified CLI hub
 """
 
@@ -36,16 +36,16 @@ def register_parser(subparsers, global_parser=None) -> argparse.ArgumentParser:
     
     parser = subparsers.add_parser(
         "backup",
-        help="Backup and restore SuperClaude installations",
-        description="Create, list, restore, and manage SuperClaude installation backups",
+        help="Backup and restore Super-OpenCode installations",
+        description="Create, list, restore, and manage Super-OpenCode installation backups",
         epilog="""
 Examples:
-  SuperClaude.py backup --create               # Create new backup
-  SuperClaude.py backup --list --verbose       # List available backups (verbose)
-  SuperClaude.py backup --restore              # Interactive restore
-  SuperClaude.py backup --restore backup.tar.gz  # Restore specific backup
-  SuperClaude.py backup --info backup.tar.gz   # Show backup information
-  SuperClaude.py backup --cleanup --force      # Clean up old backups (forced)
+  Super-OpenCode.py backup --create               # Create new backup
+  Super-OpenCode.py backup --list --verbose       # List available backups (verbose)
+  Super-OpenCode.py backup --restore              # Interactive restore
+  Super-OpenCode.py backup --restore backup.tar.gz  # Restore specific backup
+  Super-OpenCode.py backup --info backup.tar.gz   # Show backup information
+  Super-OpenCode.py backup --cleanup --force      # Clean up old backups (forced)
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=parents
@@ -138,7 +138,7 @@ def get_backup_directory(args: argparse.Namespace) -> Path:
 
 
 def check_installation_exists(install_dir: Path) -> bool:
-    """Check if SuperClaude installation exists"""
+    """Check if Super-OpenCode installation exists"""
     return install_dir.exists() and (install_dir / "settings.json").exists()
 
 
@@ -266,7 +266,7 @@ def create_backup(args: argparse.Namespace) -> bool:
     try:
         # Check if installation exists
         if not check_installation_exists(args.install_dir):
-            logger.error(f"No SuperClaude installation found in {args.install_dir}")
+            logger.error(f"No Super-OpenCode installation found in {args.install_dir}")
             return False
         
         # Setup backup directory
@@ -278,7 +278,7 @@ def create_backup(args: argparse.Namespace) -> bool:
         if args.name:
             backup_name = f"{args.name}_{timestamp}"
         else:
-            backup_name = f"superclaude_backup_{timestamp}"
+            backup_name = f"super-opencode_backup_{timestamp}"
         
         # Determine compression
         if args.compress == "gzip":
@@ -499,8 +499,8 @@ def run(args: argparse.Namespace) -> int:
         # Display header
         if not args.quiet:
             display_header(
-                "SuperClaude Backup v3.0",
-                "Backup and restore SuperClaude installations"
+                "Super-OpenCode Backup v3.0",
+                "Backup and restore Super-OpenCode installations"
             )
         
         backup_dir = get_backup_directory(args)

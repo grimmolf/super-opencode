@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """
-SuperClaude Framework Management Hub
-Unified entry point for all SuperClaude operations
+Super-OpenCode Framework Management Hub
+Unified entry point for all Super-OpenCode operations
 
 Usage:
-    SuperClaude.py install [options]
-    SuperClaude.py update [options]
-    SuperClaude.py uninstall [options]
-    SuperClaude.py backup [options]
-    SuperClaude.py --help
+    Super-OpenCode.py install [options]
+    Super-OpenCode.py update [options]
+    Super-OpenCode.py uninstall [options]
+    Super-OpenCode.py backup [options]
+    Super-OpenCode.py --help
 """
 
 import sys
@@ -73,19 +73,19 @@ def create_parser():
     global_parser = create_global_parser()
 
     parser = argparse.ArgumentParser(
-        prog="SuperClaude",
-        description="SuperClaude Framework Management Hub - Unified CLI",
+        prog="Super-OpenCode",
+        description="Super-OpenCode Framework Management Hub - Unified CLI",
         epilog="""
 Examples:
-  SuperClaude.py install --dry-run
-  SuperClaude.py update --verbose
-  SuperClaude.py backup --create
+  Super-OpenCode.py install --dry-run
+  Super-OpenCode.py update --verbose
+  Super-OpenCode.py backup --create
         """,
         formatter_class=argparse.RawDescriptionHelpFormatter,
         parents=[global_parser]
     )
 
-    parser.add_argument("--version", action="version", version="SuperClaude v3.0.0")
+    parser.add_argument("--version", action="version", version="Super-OpenCode v3.0.0")
 
     subparsers = parser.add_subparsers(
         dest="operation",
@@ -108,21 +108,21 @@ def setup_global_environment(args: argparse.Namespace):
 
     # Define log directory unless it's a dry run
     log_dir = args.install_dir / "logs" if not args.dry_run else None
-    setup_logging("superclaude_hub", log_dir=log_dir, console_level=level)
+    setup_logging("super-opencode_hub", log_dir=log_dir, console_level=level)
 
     # Log startup context
     logger = get_logger()
     if logger:
-        logger.debug(f"SuperClaude.py called with operation: {getattr(args, 'operation', 'None')}")
+        logger.debug(f"Super-OpenCode.py called with operation: {getattr(args, 'operation', 'None')}")
         logger.debug(f"Arguments: {vars(args)}")
 
 
 def get_operation_modules() -> Dict[str, str]:
     """Return supported operations and their descriptions"""
     return {
-        "install": "Install SuperClaude framework components",
-        "update": "Update existing SuperClaude installation",
-        "uninstall": "Remove SuperClaude installation",
+        "install": "Install Super-OpenCode framework components",
+        "update": "Update existing Super-OpenCode installation",
+        "uninstall": "Remove Super-OpenCode installation",
         "backup": "Backup and restore operations"
     }
 
@@ -193,7 +193,7 @@ def main() -> int:
         # No operation provided? Show help manually unless in quiet mode
         if not args.operation:
             if not args.quiet:
-                display_header("SuperClaude Framework v3.0", "Unified CLI for all operations")
+                display_header("Super-OpenCode Framework v3.0", "Unified CLI for all operations")
                 print(f"{Colors.CYAN}Available operations:{Colors.RESET}")
                 for op, desc in get_operation_modules().items():
                     print(f"  {op:<12} {desc}")
